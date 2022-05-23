@@ -929,7 +929,10 @@ func draw_new_point_preview(overlay: Control):
 	var a
 	var mouse = overlay.get_local_mouse_position()
 	if is_shape_closed(shape):
-		a = t.xform(verts[verts.size() - 2])
+		var next_index = 2
+		if (verts.size() == 2):
+			next_index = 1
+		a = t.xform(verts[verts.size() - next_index])
 		var b = t.xform(verts[0])
 		overlay.draw_line(mouse, b, color, width * .5, true)
 	else:
