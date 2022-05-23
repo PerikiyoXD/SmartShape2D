@@ -858,6 +858,11 @@ func draw_shape_outline(overlay: Control, t: Transform2D, points, color = null, 
 
 
 func draw_vert_handles(overlay: Control, t: Transform2D, verts, control_points: bool):
+	if (verts.size() == 0):
+		var mouse = overlay.get_local_mouse_position()
+		overlay.draw_texture(ICON_ADD_HANDLE, mouse - ICON_ADD_HANDLE.get_size() * 0.5)
+		return
+
 	for i in range(0, verts.size(), 1):
 		# Draw Vert handles
 		var key: int = shape.get_point_key_at_index(i)
