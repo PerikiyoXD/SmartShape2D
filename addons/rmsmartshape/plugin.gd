@@ -920,6 +920,8 @@ func draw_vert_handles(overlay: Control, t: Transform2D, verts, control_points: 
 				if hp != pointin:
 					_draw_control_point_line(overlay, hp, pointin, ICON_HANDLE_CONTROL)
 
+			overlay.draw_string(addon_font, hp + Vector2(10, 10), "Index " + str(i))
+
 
 func _draw_control_point_line(c: Control, vert: Vector2, cp: Vector2, tex: Texture):
 	# Draw the line with a dark and light color to be visible on all backgrounds
