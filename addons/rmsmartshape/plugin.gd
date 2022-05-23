@@ -342,7 +342,7 @@ func _init():
 
 func _ready():
 	addon_font.font_data = load("res://addons/rmsmartshape/assets/SourceCodeVariable-Roman.ttf")
-	addon_font.size = 16
+	addon_font.size = 13
 	undo = get_undo_redo()
 	# Support the undo-redo actions
 	_gui_build_toolbar()
