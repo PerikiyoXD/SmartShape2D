@@ -836,6 +836,12 @@ func draw_mode_edit_vert(overlay: Control, show_vert_handles: bool = true):
 	var verts = shape.get_vertices()
 	var points = shape.get_tessellated_points()
 	draw_shape_outline(overlay, t, points)
+
+	if (verts.size() == 0):
+		var mouse = overlay.get_local_mouse_position()
+		overlay.draw_texture(ICON_ADD_HANDLE, mouse - ICON_ADD_HANDLE.get_size() * 0.5)
+		return
+
 	if show_vert_handles:
 		draw_vert_handles(overlay, t, verts, true)
 	if on_edge:
@@ -863,8 +869,6 @@ func draw_shape_outline(overlay: Control, t: Transform2D, points, color = null, 
 
 func draw_vert_handles(overlay: Control, t: Transform2D, verts, control_points: bool):
 	if (verts.size() == 0):
-		var mouse = overlay.get_local_mouse_position()
-		overlay.draw_texture(ICON_ADD_HANDLE, mouse - ICON_ADD_HANDLE.get_size() * 0.5)
 		return
 
 	for i in range(0, verts.size(), 1):
