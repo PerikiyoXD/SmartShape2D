@@ -30,6 +30,8 @@ var ICON_SNAP = load("res://addons/rmsmartshape/assets/icon_editor_snap.svg")
 var ICON_IMPORT_CLOSED = load("res://addons/rmsmartshape/assets/closed_shape.png")
 var ICON_IMPORT_OPEN = load("res://addons/rmsmartshape/assets/open_shape.png")
 
+var addon_font = DynamicFont.new()
+
 const FUNC = preload("plugin-functionality.gd")
 
 enum MODE { EDIT_VERT, EDIT_EDGE, SET_PIVOT, CREATE_VERT, FREEHAND }
@@ -339,6 +341,8 @@ func _init():
 
 
 func _ready():
+	addon_font.font_data = load("res://addons/rmsmartshape/assets/SourceCodeVariable-Roman.ttf")
+	addon_font.size = 16
 	undo = get_undo_redo()
 	# Support the undo-redo actions
 	_gui_build_toolbar()
