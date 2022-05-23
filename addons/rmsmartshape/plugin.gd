@@ -937,12 +937,16 @@ func _draw_control_point_line(c: Control, vert: Vector2, cp: Vector2, tex: Textu
 func draw_new_point_preview(overlay: Control):
 	# Draw lines to where a new point will be added
 	var verts = shape.get_vertices()
+
+	if (verts.size() == 0):
+		return
+
 	var t: Transform2D = get_et() * shape.get_global_transform()
 	var color = Color(1, 1, 1, .5)
 	var width = 2
-
 	var a
 	var mouse = overlay.get_local_mouse_position()
+
 	if is_shape_closed(shape):
 		var next_index = 2
 		if (verts.size() == 2):
